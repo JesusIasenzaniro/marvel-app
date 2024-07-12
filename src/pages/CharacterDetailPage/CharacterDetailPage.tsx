@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import { Character } from '../../types/Character';
-import { Comic } from '../../types/Comic';
+import { Comic } from '../../types/Comic.';
 import { useFavorites } from '../../contexts/FavoritesContext';
 import './CharacterDetailPage.css';
 import Image from '../../components/atoms/ATImage/Image';
