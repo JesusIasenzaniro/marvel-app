@@ -7,20 +7,13 @@ import React, {
 } from 'react';
 import { Character } from '../types/Character';
 import api from '../services/api';
-
-interface FavoriteContextProps {
-    characters: Character[];
-    favorites: number[];
-    addFavorite: (id: number) => void;
-    removeFavorite: (id: number) => void;
-    toggleFavorite: (id: number) => void;
-}
+import { FavoriteContextProps } from '../types/FavoriteContext';
 
 const FavoritesContext = createContext<FavoriteContextProps | undefined>(
     undefined
 );
 
-export const useFavorites = () => {
+export const useFavorites = (): FavoriteContextProps => {
     const context = useContext(FavoritesContext);
     if (!context) {
         throw new Error('useFavorites must be used inside FavoritesProvider');
