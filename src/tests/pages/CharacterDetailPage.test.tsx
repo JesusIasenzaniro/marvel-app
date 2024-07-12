@@ -2,7 +2,8 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
-import { useFavorites } from '../../contexts/FavoritesContext'; // Ensure to import the correct types
+import { jest } from '@jest/globals';
+import { useFavorites } from '../../contexts/FavoritesContext';
 import api from '../../services/api';
 import CharacterDetailPage from '../../pages/CharacterDetailPage/CharacterDetailPage';
 
@@ -46,37 +47,43 @@ const mockComics = [
 ];
 
 const mockToggleFavorite = jest.fn();
+const mockAddFavorite = jest.fn();
+const mockRemoveFavorite = jest.fn();
 
 describe('CharacterDetailPage', () => {
     beforeEach(() => {
-        (useFavorites as jest.Mock).mockReturnValue({
+        (
+            useFavorites as jest.MockedFunction<typeof useFavorites>
+        ).mockReturnValue({
             toggleFavorite: mockToggleFavorite,
+            addFavorite: mockAddFavorite,
+            removeFavorite: mockRemoveFavorite,
             favorites: [],
             characters: [],
-            addFavorite: jest.fn(),
-            removeFavorite: jest.fn(),
         });
 
-        (api.get as jest.Mock).mockImplementation((url: string) => {
-            if (url.includes('/characters/')) {
-                return Promise.resolve({
-                    data: {
+        (api.get as jest.MockedFunction<typeof api.get>).mockImplementation(
+            (url: string) => {
+                if (url.includes('/characters/')) {
+                    return Promise.resolve({
                         data: {
-                            results: [mockCharacter],
+                            data: {
+                                results: [mockCharacter],
+                            },
                         },
-                    },
-                });
-            } else if (url.includes('/comics')) {
-                return Promise.resolve({
-                    data: {
+                    });
+                } else if (url.includes('/comics')) {
+                    return Promise.resolve({
                         data: {
-                            results: mockComics,
+                            data: {
+                                results: mockComics,
+                            },
                         },
-                    },
-                });
+                    });
+                }
+                return Promise.resolve({} as any);
             }
-            return Promise.reject(new Error('Unknown API endpoint'));
-        });
+        );
     });
 
     afterEach(() => {
