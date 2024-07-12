@@ -1,0 +1,14 @@
+.favorites-container {
+    padding: 48px;
+}
+
+.favorites-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.results-count {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
