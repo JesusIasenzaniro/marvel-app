@@ -68,7 +68,7 @@ export const FavoritesProvider: React.FC<FavoritesProviderProps> = ({
                 favorites,
                 addFavorite,
                 removeFavorite,
-                toggleFavorite, // Añadido
+                toggleFavorite,
             }}
         >
             {children}
