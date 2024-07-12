@@ -1,0 +1,28 @@
+.character-list-container {
+    padding: 48px;
+}
+.results-count {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid black;
+    padding: 8px 0;
+    width: 100%;
+    background: none;
+}
+
+.search-bar input {
+    border: none;
+    margin-left: 8px;
+    width: 100%;
+    background: none;
+    padding: 8px;
+}
+
+.search-bar input:focus {
+    outline: none;
+}
