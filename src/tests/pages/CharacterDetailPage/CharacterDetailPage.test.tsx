@@ -137,7 +137,11 @@ describe('CharacterDetailPage', () => {
             expect(screen.getByText('Amazing Spider-Man')).toBeInTheDocument();
         });
 
-        expect(screen.getByText('Spider-Man: Homecoming')).toBeInTheDocument();
+        await waitFor(() => {
+            expect(
+                screen.getByText('Spider-Man: Homecoming')
+            ).toBeInTheDocument();
+        });
     });
 
     it('toggles favorite status', async () => {
@@ -155,8 +159,12 @@ describe('CharacterDetailPage', () => {
             name: /add to favorites/i,
         });
 
+        expect(favoriteButton).toBeInTheDocument();
+
         userEvent.click(favoriteButton);
 
-        expect(mockToggleFavorite).toHaveBeenCalledWith(1);
+        await waitFor(() => {
+            expect(mockToggleFavorite).toHaveBeenCalledWith(1);
+        });
     });
 });
