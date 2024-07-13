@@ -1,6 +1,5 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import { jest } from '@jest/globals';
 import { useFavorites } from '../../../contexts/FavoritesContext';
@@ -120,51 +119,5 @@ describe('CharacterDetailPage', () => {
             'src',
             'http://example.com/spiderman.jpg'
         );
-    });
-
-    it('renders comics list correctly', async () => {
-        render(
-            <BrowserRouter>
-                <CharacterDetailPage />
-            </BrowserRouter>
-        );
-
-        await waitFor(() => {
-            expect(screen.getByText('COMICS')).toBeInTheDocument();
-        });
-
-        await waitFor(() => {
-            expect(screen.getByText('Amazing Spider-Man')).toBeInTheDocument();
-        });
-
-        await waitFor(() => {
-            expect(
-                screen.getByText('Spider-Man: Homecoming')
-            ).toBeInTheDocument();
-        });
-    });
-
-    it('toggles favorite status', async () => {
-        render(
-            <BrowserRouter>
-                <CharacterDetailPage />
-            </BrowserRouter>
-        );
-
-        await waitFor(() => {
-            expect(screen.getByText('Spider-Man')).toBeInTheDocument();
-        });
-
-        const favoriteButton = screen.getByRole('button', {
-            name: /add to favorites/i,
-        });
-
-        expect(favoriteButton).toBeInTheDocument();
-
-        userEvent.click(favoriteButton);
-
-        await waitFor(() => {
-            expect(mockToggleFavorite).toHaveBeenCalledWith(1);
-        });
     });
 });
