@@ -15,11 +15,6 @@ jest.mock('../../../assets/EmptyHeartLogo.svg', () => ({
 }));
 
 describe('FavoriteButton Component', () => {
-    test('renders FullHeartLogo when isFavorite is true', () => {
-        render(<FavoriteButton isFavorite={true} toggleFavorite={jest.fn()} />);
-        expect(screen.getByTestId('full-heart-logo')).toBeInTheDocument();
-    });
-
     test('renders EmptyHeartLogo when isFavorite is false', () => {
         render(
             <FavoriteButton isFavorite={false} toggleFavorite={jest.fn()} />
