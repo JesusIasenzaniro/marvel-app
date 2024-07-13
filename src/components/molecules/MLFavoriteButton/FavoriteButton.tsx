@@ -19,7 +19,15 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     );
 
     return (
-        <div onClick={toggleFavorite} className='favorite-button'>
+        <div
+            onClick={toggleFavorite}
+            className='favorite-button'
+            aria-label={
+                isFavorite ? 'Remove from favorites' : 'Add to favorites'
+            }
+            title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+            role='button'
+        >
             {favoriteHeart}
         </div>
     );
