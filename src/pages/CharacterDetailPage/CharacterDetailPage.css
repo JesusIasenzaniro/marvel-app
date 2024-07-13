@@ -32,9 +32,9 @@
     justify-content: space-between;
 }
 
-.character-action-info img {
-    height: 26px;
+.character-action-info .favorite-button .heart-logo {
     width: 26px;
+    fill: red;
 }
 
 .character-info h1 {

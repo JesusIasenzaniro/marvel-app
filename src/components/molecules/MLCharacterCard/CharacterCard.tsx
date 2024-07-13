@@ -16,10 +16,7 @@ interface CharacterCardProps {
     isDetailPage?: boolean;
 }
 
-const CharacterCard: React.FC<CharacterCardProps> = ({
-    character,
-    isDetailPage = false,
-}) => {
+const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
     const navigate = useNavigate();
     const { toggleFavorite, favorites } = useFavorites();
     const isFavorite = favorites.includes(character.id);
@@ -37,7 +34,6 @@ const CharacterCard: React.FC<CharacterCardProps> = ({
                 <FavoriteButton
                     isFavorite={isFavorite}
                     toggleFavorite={() => toggleFavorite(Number(character.id))}
-                    isDetailPage={isDetailPage}
                 />
             </div>
         </div>

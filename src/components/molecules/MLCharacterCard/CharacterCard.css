@@ -12,7 +12,7 @@
         0 100%
     );
     width: 172.5px;
-    height: 217.97px;
+    height: 207.97px;
     position: relative;
     transition: all 0.3s ease;
 }
@@ -50,13 +50,19 @@
     padding-left: 8px;
 }
 
-.favorite-button img {
-    width: 10.84px;
-    height: 10.84px;
+.favorite-button {
     cursor: pointer;
-    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-logo {
+    width: 12px;
+    font-size: 12px;
     margin-right: 8px;
-    flex-shrink: 0;
+    margin-top: 2px;
+    transition: fill 0.3s ease;
 }
 
 .character-card::after {
@@ -76,12 +82,10 @@
     height: calc(100% - 159.97px);
 }
 
-.favorite {
-    filter: invert(25%) sepia(99%) saturate(4564%) hue-rotate(349deg)
-        brightness(100%) contrast(100%);
+.character-card:hover .favorite-button .heart-logo {
+    fill: white;
 }
 
-.character-card:hover .favorite {
-    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(135deg)
-        brightness(120%) contrast(100%);
+.character-card .favorite-button .heart-logo {
+    fill: red;
 }

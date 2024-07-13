@@ -52,7 +52,6 @@ const CharacterDetailPage: React.FC = () => {
                         <FavoriteButton
                             isFavorite={isFavorite}
                             toggleFavorite={() => toggleFavorite(Number(id))}
-                            isDetailPage={true}
                         />
                     </div>
                     <p>{character.description}</p>

@@ -1,3 +1,9 @@
 .favorite-button {
     cursor: pointer;
 }
+.heart-logo {
+    width: 12px;
+    font-size: 12px;
+    margin-right: 8px;
+    margin-top: 2px;
+}
