@@ -4,7 +4,7 @@ module.exports = {
     testEnvironment: 'jsdom',
     moduleNameMapper: {
         '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
-        '\\.svg$': '<rootDir>/src/tests/__mocks__/svgMock.js',
+        '\\.svg$': 'jest-transform-stub',
     },
     transform: {
         '^.+\\.tsx?$': [
