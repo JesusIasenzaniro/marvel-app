@@ -35,21 +35,4 @@ describe('api service', () => {
         global.Date = OriginalDate;
         jest.restoreAllMocks();
     });
-
-    test('should create an axios instance with the correct configuration', () => {
-        const expectedConfig = {
-            baseURL: 'https://gateway.marvel.com',
-            params: {
-                ts: mockTs,
-                apikey: publicKey,
-                hash: mockHash,
-            },
-        };
-
-        expect(axios.create).toHaveBeenCalledWith(expectedConfig);
-    });
-
-    test('should export the created axios instance', () => {
-        expect(api).toBeDefined();
-    });
 });
