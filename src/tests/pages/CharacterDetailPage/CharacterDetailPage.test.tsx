@@ -3,15 +3,15 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import { jest } from '@jest/globals';
-import { useFavorites } from '../../contexts/FavoritesContext';
-import api from '../../services/api';
-import CharacterDetailPage from '../../pages/CharacterDetailPage/CharacterDetailPage';
+import { useFavorites } from '../../../contexts/FavoritesContext';
+import api from '../../../services/api';
+import CharacterDetailPage from '../../../pages/CharacterDetailPage/CharacterDetailPage';
 
-jest.mock('../../contexts/FavoritesContext', () => ({
+jest.mock('../../../contexts/FavoritesContext', () => ({
     useFavorites: jest.fn(),
 }));
 
-jest.mock('../../services/api', () => ({
+jest.mock('../../../services/api', () => ({
     get: jest.fn(),
 }));
 
