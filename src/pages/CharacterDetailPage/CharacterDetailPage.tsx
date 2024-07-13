@@ -70,7 +70,7 @@ const CharacterDetailPage: React.FC = () => {
                             <p className='comic-title'>{comic.title}</p>
                             <p className='comic-date'>
                                 {new Date(
-                                    comic.dates.find(
+                                    comic.dates?.find(
                                         (date) => date.type === 'onsaleDate'
                                     )?.date || ''
                                 ).getFullYear()}
