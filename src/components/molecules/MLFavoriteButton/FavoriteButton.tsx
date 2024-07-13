@@ -13,9 +13,9 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
     toggleFavorite,
 }) => {
     const favoriteHeart = isFavorite ? (
-        <FullHeartLogo className='heart-logo' />
+        <FullHeartLogo className='heart-logo' data-testid='full-heart-logo' />
     ) : (
-        <EmptyHeartLogo className='heart-logo' />
+        <EmptyHeartLogo className='heart-logo' data-testid='empty-heart-logo' />
     );
 
     return (
