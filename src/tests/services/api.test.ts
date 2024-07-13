@@ -35,4 +35,12 @@ describe('api service', () => {
         global.Date = OriginalDate;
         jest.restoreAllMocks();
     });
+
+    test('should have correct environment variables', () => {
+        expect(process.env.REACT_APP_MARVEL_PUBLIC_KEY).toBe(publicKey);
+        expect(process.env.REACT_APP_MARVEL_PRIVATE_KEY).toBe(privateKey);
+        expect(process.env.REACT_APP_API_URL).toBe(
+            'https://gateway.marvel.com'
+        );
+    });
 });
