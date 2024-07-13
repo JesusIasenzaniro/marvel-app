@@ -8,7 +8,7 @@ const SearchBar: React.FC = () => {
 
     return (
         <form className='search-bar' onSubmit={(e) => e.preventDefault()}>
-            <FaSearch />
+            <FaSearch data-testid='fa-search' />
             <input
                 type='text'
                 placeholder='SEARCH CHARACTER...'
