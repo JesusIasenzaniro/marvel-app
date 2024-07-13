@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../../services/api';
 import { Character } from '../../types/Character';
-import { Comic } from '../../types/Comic.';
+import { Comic } from '../../types/Comic';
 import { useFavorites } from '../../contexts/FavoritesContext';
 import './CharacterDetailPage.css';
 import Image from '../../components/atoms/ATImage/Image';
@@ -61,22 +61,25 @@ const CharacterDetailPage: React.FC = () => {
             <div className='comics-carousel-container'>
                 <h2>COMICS</h2>
                 <div className='comics-carousel'>
-                    {comics.map((comic) => (
-                        <div key={comic.id} className='comic-card'>
-                            <img
-                                src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
-                                alt={comic.title}
-                            />
-                            <p className='comic-title'>{comic.title}</p>
-                            <p className='comic-date'>
-                                {new Date(
-                                    comic.dates?.find(
-                                        (date) => date.type === 'onsaleDate'
-                                    )?.date || ''
-                                ).getFullYear()}
-                            </p>
-                        </div>
-                    ))}
+                    {comics.map((comic) => {
+                        const onsaleDate = comic.dates?.find(
+                            (date) => date.type === 'onsaleDate'
+                        )?.date;
+                        return (
+                            <div key={comic.id} className='comic-card'>
+                                <img
+                                    src={`${comic.thumbnail.path}.${comic.thumbnail.extension}`}
+                                    alt={comic.title}
+                                />
+                                <p className='comic-title'>{comic.title}</p>
+                                <p className='comic-date'>
+                                    {onsaleDate
+                                        ? new Date(onsaleDate).getFullYear()
+                                        : 'Unknown'}
+                                </p>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </>

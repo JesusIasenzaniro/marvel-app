@@ -15,6 +15,14 @@ jest.mock('../../../services/api', () => ({
     get: jest.fn(),
 }));
 
+jest.mock('../../../assets/FullHeartLogo.svg', () => ({
+    ReactComponent: 'svg',
+}));
+
+jest.mock('../../../assets/EmptyHeartLogo.svg', () => ({
+    ReactComponent: 'svg',
+}));
+
 const mockCharacter = {
     id: 1,
     name: 'Spider-Man',
@@ -125,7 +133,10 @@ describe('CharacterDetailPage', () => {
             expect(screen.getByText('COMICS')).toBeInTheDocument();
         });
 
-        expect(screen.getByText('Amazing Spider-Man')).toBeInTheDocument();
+        await waitFor(() => {
+            expect(screen.getByText('Amazing Spider-Man')).toBeInTheDocument();
+        });
+
         expect(screen.getByText('Spider-Man: Homecoming')).toBeInTheDocument();
     });
 
@@ -141,7 +152,7 @@ describe('CharacterDetailPage', () => {
         });
 
         const favoriteButton = screen.getByRole('button', {
-            name: /empty heart logo/i,
+            name: /add to favorites/i,
         });
 
         userEvent.click(favoriteButton);
