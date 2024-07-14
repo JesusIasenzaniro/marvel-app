@@ -50,6 +50,15 @@ REACT_APP_MARVEL_PUBLIC_KEY=your_public_key
 REACT_APP_MARVEL_PRIVATE_KEY=your_private_key
 REACT_APP_API_URL=http://gateway.marvel.com/v1/public
 
+### Obtaining Marvel API Keys
+
+To obtain the Marvel API keys, follow these steps:
+
+1. Go to the [official Marvel API page](https://developer.marvel.com/).
+2. Sign up for an account.
+3. Once signed in, navigate to the "Get a key" section.
+4. Follow the instructions to get your public and private API keys.
+
 Replace `your_public_key` and `your_private_key` with your actual Marvel API public and private keys.
 
 ## Project Structure and Design (Atomic Design)
