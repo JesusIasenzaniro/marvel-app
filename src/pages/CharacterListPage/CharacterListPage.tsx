@@ -9,10 +9,11 @@ import Transition from '../../components/Transition';
 const CharacterListPage: React.FC = () => {
     const { characters } = useFavorites();
     const { query } = useSearch();
-
     const filteredCharacters = characters.filter((character) =>
         character.name.toLowerCase().includes(query.toLowerCase())
     );
+
+    if (characters.length === 0) return <h3>Loading...</h3>;
 
     return (
         <div className='character-list-container'>
